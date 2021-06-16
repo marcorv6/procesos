@@ -272,7 +272,7 @@ this.matrix1) this.rellenarMatriz(this.MTD2,
 
 <script>
 export default {
-  props: ['dimension'],
+  props: ['dimension', 'method'],
   data() {
     return {
       aux: [],

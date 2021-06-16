@@ -1,9 +1,9 @@
 <template>
   <div>
     <h2 class="text-center">Procesos markovianos</h2>
-    <div id="app" class="container">
+    <b-container id="app">
       <Inputs />
-    </div>
+    </b-container>
   </div>
 </template>
 
