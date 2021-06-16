@@ -262,7 +262,10 @@ this.matrix1) this.rellenarMatriz(this.MTD2,
       <div class="row justify-content-center py-2">
         <div class="col-2">
           <button class="btn btn-info" type="button" @click="generarMatriz()">
-            Generamos matrices
+            Generar matrices
+          </button>
+          <button class="btn btn-info mt-3" type="button" v-if="boton" @click="llamar()">
+            Resolver
           </button>
         </div>
       </div>
@@ -275,6 +278,7 @@ export default {
   props: ['dimension', 'method'],
   data() {
     return {
+      boton: false,
       aux: [],
       aux2: [],
       decisiones: [],
@@ -305,6 +309,7 @@ export default {
   },
   methods: {
     generarMatriz() {
+      this.boton = true
       this.decisiones = new Array(this.dimension.filas)
       this.costos = new Array(this.dimension.filas)
 
@@ -393,6 +398,19 @@ export default {
 
       console.log(this.objeto)
     },
+    llamar() {
+      if(this.method == 1){
+        console.log("1")
+      } else if(this.method == 2){
+        console.log("2")
+      } else if(this.method == 3){
+        console.log("3")
+      } else if(this.method == 4){
+        console.log("4")
+      } else if(this.method == 5){
+        console.log("5")
+      }
+    }
   },
   created() {
     this.aux = new Array(this.dimension.filas * this.dimension.col)

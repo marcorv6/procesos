@@ -30,6 +30,7 @@
 
 <script>
 import Matrices from './matrices.vue'
+// import {quicksort} from './quicksort'
 
 export default {
   data() {
@@ -44,5 +45,8 @@ export default {
   components: {
     Matrices,
   },
+  // created() {
+  //   console.log(quicksort([1,9,8,7,6,2,3,42,]))
+  // }
 }
 </script>
