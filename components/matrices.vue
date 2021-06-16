@@ -274,6 +274,7 @@ this.matrix1) this.rellenarMatriz(this.MTD2,
 </template>
 
 <script>
+import {calcularPolitica} from './enumetacionExhaustiva.js'
 export default {
   props: ['dimension', 'method'],
   data() {
@@ -318,6 +319,11 @@ export default {
       this.MTD3 = new Array(this.dimension.filas)
       this.MTD4 = new Array(this.dimension.filas)
       this.MTD5 = new Array(this.dimension.filas)
+      this.MTD6 = new Array(this.dimension.filas)
+      this.MTD7 = new Array(this.dimension.filas)
+      this.MTD8 = new Array(this.dimension.filas)
+      this.MTD9 = new Array(this.dimension.filas)
+      this.MTD10 = new Array(this.dimension.filas)
 
       for (let i = 0; i < this.dimension.filas; i++)
         this.decisiones[i] = new Array(this.dimension.col)
@@ -400,7 +406,8 @@ export default {
     },
     llamar() {
       if(this.method == 1){
-        console.log("1")
+        let z = calcularPolitica(this.objeto.estados, this.objeto.costos, this.objeto.matrixFinal, this.dimension.arbitraria)
+        console.log(z)
       } else if(this.method == 2){
         console.log("2")
       } else if(this.method == 3){

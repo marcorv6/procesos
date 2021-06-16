@@ -23,7 +23,7 @@
             type="number"
             v-model.number="dimensiones.filas"
           />
-          <div v-if="method == 3">
+          <div v-if="method == 3 || method == 1">
             <p>Politica arbitraria</p>
             <div
               v-for="(n, index) in dimensiones.col"
