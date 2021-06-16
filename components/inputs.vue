@@ -12,13 +12,37 @@
             <option value="5">Aproximaciones sucesivas</option>
           </b-select>
           <label class="from-label">Número de estados</label>
-          <input class="form-control" v-model.number="dimensiones.col" />
+          <input
+            class="form-control"
+            type="number"
+            v-model.number="dimensiones.col"
+          />
           <label class="from-label">Número de decisiones</label>
-          <input class="form-control" v-model.number="dimensiones.filas" />
+          <input
+            class="form-control"
+            type="number"
+            v-model.number="dimensiones.filas"
+          />
+          <div v-if="method == 3">
+            <p>Politica arbitraria</p>
+            <div
+              v-for="(n, index) in dimensiones.col"
+              v-bind:item="n"
+              v-bind:index="index"
+              v-bind:key="n.id"
+            >
+              <div class="input-group row">
+                <input
+                  class="form-control col"
+                  type="number"
+                  v-model.number="dimensiones.arbitraria[n-1]"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <br />
-
       <div class="text-center py-2">
         <Matrices :method="method" v-bind:dimension="dimensiones"></Matrices>
       </div>
@@ -36,10 +60,12 @@ export default {
   data() {
     return {
       dimensiones: {
-        filas: '',
-        col: '',
+        filas: null,
+        col: null,
+        arbitraria: [],
       },
-      method: null
+      estados: null,
+      method: null,
     }
   },
   components: {
